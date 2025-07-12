@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Flashcard New Tab Chrome Extension
 
 A Chrome extension that displays flashcards every time you open a new tab, helping you learn and review information throughout your browsing sessions.
@@ -128,3 +129,7 @@ This project is open source and available under the MIT License.
   - Card management
   - Import/export functionality
   - Responsive design
+=======
+# Flash-Card---Chrome-Extension
+Flash Card is a lightweight and easy-to-use Chrome extension that delivers short, focused learning content (micro-lessons) directly to your browser. Whether you're a student, professional, or lifelong learner, MicroLearn helps you learn something new every day—without distractions.
+>>>>>>> ec229a5fe947fd0975ac75684e92753f6f3faf40
