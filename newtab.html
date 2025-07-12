@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcard New Tab</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎓 Flashcard New Tab</h1>
+            <div class="controls">
+                <button id="prevBtn" class="btn">← Previous</button>
+                <button id="flipBtn" class="btn primary">Flip Card</button>
+                <button id="nextBtn" class="btn">Next →</button>
+            </div>
+        </div>
+        
+        <div class="flashcard-container">
+            <div class="flashcard" id="flashcard">
+                <div class="flashcard-inner">
+                    <div class="flashcard-front">
+                        <div class="card-content">
+                            <h2 id="question">Click "Flip Card" to reveal the answer!</h2>
+                        </div>
+                    </div>
+                    <div class="flashcard-back">
+                        <div class="card-content">
+                            <h2 id="answer">Welcome to Flashcard New Tab!</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div class="card-info">
+                <span id="cardCounter">Card 1 of 1</span>
+            </div>
+            <div class="actions">
+                <button id="addCardBtn" class="btn secondary">Add New Card</button>
+                <button id="editCardBtn" class="btn secondary">Edit Cards</button>
+                <button id="importBtn" class="btn secondary">📁 Import JSON</button>
+                <button id="shuffleBtn" class="btn secondary">🔀 Shuffle</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Card Modal -->
+    <div id="cardModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle">Add New Flashcard</h2>
+            <form id="cardForm">
+                <div class="form-group">
+                    <label for="questionInput">Question:</label>
+                    <textarea id="questionInput" placeholder="Enter your question here..." required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="answerInput">Answer:</label>
+                    <textarea id="answerInput" placeholder="Enter your answer here..." required></textarea>
+                </div>
+                <div class="form-buttons">
+                    <button type="submit" class="btn primary">Save Card</button>
+                    <button type="button" id="cancelBtn" class="btn secondary">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Manage Cards Modal -->
+    <div id="manageModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Manage Flashcards</h2>
+            <div id="cardsList"></div>
+        </div>
+    </div>
+
+    <!-- Attribution Section -->
+    <div class="attribution">
+        <p>Made with ❤️ by <strong>Ravi Patel</strong></p>
+        <p>Empowering learning through interactive flashcards • Study smarter, not harder</p>
+        <p>© 2025 Flashcard New Tab Extension • Designed for Chrome</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

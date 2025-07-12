@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimal Flashcard</title>
+    <link rel="stylesheet" href="minimal-flashcard.css">
+</head>
+<body>
+    <div class="flashcard-app">
+        <div class="flashcard-wrapper">
+            <div class="flashcard" id="flashcard">
+                <div class="card-face card-front">
+                    <div class="card-content">
+                        <h2 class="card-text">What is the capital of France?</h2>
+                    </div>
+                </div>
+                <div class="card-face card-back">
+                    <div class="card-content">
+                        <h2 class="card-text">Paris</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button class="btn btn-flip" id="flipBtn">Reveal Answer</button>
+            <div class="navigation">
+                <button class="btn btn-nav" id="prevBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"></path>
+                    </svg>
+                </button>
+                <span class="card-counter">1 / 5</span>
+                <button class="btn btn-nav" id="nextBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple flip functionality
+        const flashcard = document.getElementById('flashcard');
+        const flipBtn = document.getElementById('flipBtn');
+        let isFlipped = false;
+
+        function flipCard() {
+            isFlipped = !isFlipped;
+            flashcard.classList.toggle('flipped');
+            flipBtn.textContent = isFlipped ? 'Show Question' : 'Reveal Answer';
+        }
+
+        flipBtn.addEventListener('click', flipCard);
+        flashcard.addEventListener('click', flipCard);
+
+        // Keyboard support
+        document.addEventListener('keydown', (e) => {
+            // Don't trigger shortcuts when user is typing in input fields
+            const activeElement = document.activeElement;
+            const isInputField = activeElement && (
+                activeElement.tagName === 'INPUT' || 
+                activeElement.tagName === 'TEXTAREA' ||
+                activeElement.isContentEditable
+            );
+            
+            // Skip keyboard shortcuts if user is typing in an input field
+            if (isInputField) {
+                return;
+            }
+            
+            if (e.key === ' ' || e.key === 'Enter') {
+                e.preventDefault();
+                flipCard();
+            }
+        });
+    </script>
+</body>
+</html>

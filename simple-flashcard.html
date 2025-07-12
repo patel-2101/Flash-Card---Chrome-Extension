@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Flashcard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .flashcard-container {
+            perspective: 1000px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .flashcard {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            transform-style: preserve-3d;
+            transition: transform 0.6s ease;
+            cursor: pointer;
+        }
+
+        .flashcard.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-side {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .card-front {
+            background: #ffffff;
+            color: #333;
+            border: 2px solid #e0e0e0;
+        }
+
+        .card-back {
+            background: #4a90e2;
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .card-text {
+            font-size: 1.2rem;
+            font-weight: 500;
+            line-height: 1.4;
+            word-wrap: break-word;
+        }
+
+        .flip-hint {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.8rem;
+            opacity: 0.7;
+            color: #666;
+        }
+
+        .card-back .flip-hint {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .flashcard:hover {
+            transform: translateY(-2px);
+        }
+
+        .flashcard.flipped:hover {
+            transform: rotateY(180deg) translateY(-2px);
+        }
+
+        @media (max-width: 480px) {
+            .flashcard {
+                height: 200px;
+            }
+            
+            .card-side {
+                padding: 20px;
+            }
+            
+            .card-text {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="flashcard-container">
+        <div class="flashcard" id="flashcard">
+            <div class="card-side card-front">
+                <div class="card-text">What is the capital of France?</div>
+                <div class="flip-hint">Click to reveal</div>
+            </div>
+            <div class="card-side card-back">
+                <div class="card-text">Paris</div>
+                <div class="flip-hint">Click to flip back</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const flashcard = document.getElementById('flashcard');
+        
+        flashcard.addEventListener('click', function() {
+            this.classList.toggle('flipped');
+        });
+
+        // Keyboard support
+        document.addEventListener('keydown', function(e) {
+            // Don't trigger shortcuts when user is typing in input fields
+            const activeElement = document.activeElement;
+            const isInputField = activeElement && (
+                activeElement.tagName === 'INPUT' || 
+                activeElement.tagName === 'TEXTAREA' ||
+                activeElement.isContentEditable
+            );
+            
+            // Skip keyboard shortcuts if user is typing in an input field
+            if (isInputField) {
+                return;
+            }
+            
+            if (e.key === ' ' || e.key === 'Enter') {
+                e.preventDefault();
+                flashcard.classList.toggle('flipped');
+            }
+        });
+    </script>
+</body>
+</html>

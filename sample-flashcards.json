@@ -1,0 +1,42 @@
+[
+  {
+    "question": "What is the capital of Japan?",
+    "answer": "Tokyo"
+  },
+  {
+    "question": "What is the square root of 64?",
+    "answer": "8"
+  },
+  {
+    "question": "Who wrote Romeo and Juliet?",
+    "answer": "William Shakespeare"
+  },
+  {
+    "question": "What is the chemical symbol for gold?",
+    "answer": "Au"
+  },
+  {
+    "question": "Which planet is known as the Red Planet?",
+    "answer": "Mars"
+  },
+  {
+    "question": "What is 15 × 8?",
+    "answer": "120"
+  },
+  {
+    "question": "Who painted 'The Starry Night'?",
+    "answer": "Vincent van Gogh"
+  },
+  {
+    "question": "What is the largest ocean on Earth?",
+    "answer": "Pacific Ocean"
+  },
+  {
+    "question": "In which year did the Berlin Wall fall?",
+    "answer": "1989"
+  },
+  {
+    "question": "What is the hardest natural substance on Earth?",
+    "answer": "Diamond"
+  }
+]
